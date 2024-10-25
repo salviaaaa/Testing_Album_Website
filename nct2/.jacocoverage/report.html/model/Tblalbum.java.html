@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Tblalbum.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;nct2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">model</a> &gt; <span class="el_source">Tblalbum.java</span></div><h1>Tblalbum.java</h1><pre class="source lang-java linenums">package model;
+
+import dao.AlbumDAO;
+import util.FacesUtil;
+import javax.servlet.http.Part;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import java.util.List;
+import java.util.Base64;
+
+@ManagedBean(name = &quot;albumBean&quot;)
+@ViewScoped
+public class Tblalbum implements Serializable {
+
+    private Integer albumId;
+    private Tblunit tblunit;
+    private byte[] albumImg;
+    private String albumName;
+    private String albumDescription;
+    private String url;
+    private String url1;
+    List&lt;Tblalbum&gt; albums;
+    AlbumDAO albumDAO;
+    private Part albumImageFile;
+    private Tblalbum newAlbum;
+    private String unitId;
+    private Integer selectedAlbumId;
+
+<span class="fc" id="L32">    public Tblalbum() {</span>
+<span class="fc" id="L33">        tblunit = new Tblunit();</span>
+<span class="fc" id="L34">        albumDAO = new AlbumDAO();</span>
+<span class="fc" id="L35">        newAlbum = new Tblalbum(false);</span>
+<span class="fc" id="L36">        newAlbum.setTblunit(new Tblunit());</span>
+<span class="fc" id="L37">    }</span>
+
+<span class="fc" id="L39">    private Tblalbum(boolean isNewAlbum) {</span>
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">        if (isNewAlbum) {</span>
+<span class="nc" id="L41">            tblunit = new Tblunit();</span>
+<span class="nc" id="L42">            albumDAO = new AlbumDAO();</span>
+<span class="nc" id="L43">            newAlbum = new Tblalbum(false);</span>
+        }
+<span class="fc" id="L45">    }</span>
+
+<span class="nc" id="L47">    public Tblalbum(String albumName, String albumDescription, String url) {</span>
+<span class="nc" id="L48">        this.albumName = albumName;</span>
+<span class="nc" id="L49">        this.albumDescription = albumDescription;</span>
+<span class="nc" id="L50">        this.url = url;</span>
+<span class="nc" id="L51">    }</span>
+
+<span class="fc" id="L53">    public Tblalbum(byte[] albumImg, String albumName, String albumDescription, String url, Tblunit tblunit, String url1) {</span>
+<span class="fc" id="L54">        this.albumImg = albumImg;</span>
+<span class="fc" id="L55">        this.albumName = albumName;</span>
+<span class="fc" id="L56">        this.albumDescription = albumDescription;</span>
+<span class="fc" id="L57">        this.url = url;</span>
+<span class="fc" id="L58">        this.tblunit = tblunit;</span>
+<span class="fc" id="L59">        this.url1 = url1;</span>
+<span class="fc" id="L60">    }</span>
+
+    public Integer getAlbumId() {
+<span class="fc" id="L63">        return this.albumId;</span>
+    }
+
+    public void setAlbumId(Integer albumId) {
+<span class="fc" id="L67">        this.albumId = albumId;</span>
+<span class="fc" id="L68">    }</span>
+
+    public Tblunit getTblunit() {
+<span class="fc" id="L71">        return this.tblunit;</span>
+    }
+
+    public void setTblunit(Tblunit tblunit) {
+<span class="fc" id="L75">        this.tblunit = tblunit;</span>
+<span class="fc" id="L76">    }</span>
+
+    public byte[] getAlbumImg() {
+<span class="fc" id="L79">        return this.albumImg;</span>
+    }
+
+    public void setAlbumImg(byte[] albumImg) {
+<span class="fc" id="L83">        this.albumImg = albumImg;</span>
+<span class="fc" id="L84">    }</span>
+
+    public String getAlbumName() {
+<span class="fc" id="L87">        return this.albumName;</span>
+    }
+
+    public void setAlbumName(String albumName) {
+<span class="fc" id="L91">        this.albumName = albumName;</span>
+<span class="fc" id="L92">    }</span>
+
+    public String getAlbumDescription() {
+<span class="fc" id="L95">        return this.albumDescription;</span>
+    }
+
+    public void setAlbumDescription(String albumDescription) {
+<span class="fc" id="L99">        this.albumDescription = albumDescription;</span>
+<span class="fc" id="L100">    }</span>
+
+    public String getUrl() {
+<span class="fc" id="L103">        return this.url;</span>
+    }
+
+    public void setUrl(String url) {
+<span class="fc" id="L107">        this.url = url;</span>
+<span class="fc" id="L108">    }</span>
+
+    public String getUrl1() {
+<span class="fc" id="L111">        return this.url1;</span>
+    }
+
+    public void setUrl1(String url1) {
+<span class="fc" id="L115">        this.url1 = url1;</span>
+<span class="fc" id="L116">    }</span>
+
+    public String getAlbumImgBase64() {
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">        return albumImg != null ? Base64.getEncoder().encodeToString(albumImg) : null;</span>
+    }
+
+    // Logika dari AlbumBean
+    public void loadAlbums() {
+<span class="fc" id="L124">        albums = albumDAO.getAllAlbums();</span>
+<span class="fc" id="L125">    }</span>
+
+    public Part getAlbumImageFile() {
+<span class="fc" id="L128">        return albumImageFile;</span>
+    }
+
+    public void setAlbumImageFile(Part albumImageFile) {
+<span class="fc" id="L132">        this.albumImageFile = albumImageFile;</span>
+<span class="fc" id="L133">    }</span>
+    
+    // ini juga baru dipindahin penempatannnya 
+    
+    public Tblalbum getNewAlbum() {
+<span class="fc" id="L138">        return newAlbum;</span>
+    }
+
+    public void setNewAlbum(Tblalbum newAlbum) {
+<span class="fc" id="L142">        this.newAlbum = newAlbum;</span>
+<span class="fc" id="L143">    }</span>
+
+    public String getUnitId() {
+<span class="fc" id="L146">        return this.unitId;</span>
+    }
+
+    public void setUnitId(String unitId) {
+<span class="fc" id="L150">        this.unitId = unitId;</span>
+<span class="fc" id="L151">    }</span>
+
+    public List&lt;Tblalbum&gt; getNct127Albums() {
+<span class="fc" id="L154">        return albumDAO.getAlbumsByUnitId(&quot;u1&quot;);</span>
+    }
+
+    public List&lt;Tblalbum&gt; getNctDreamAlbums() {
+<span class="fc" id="L158">        return albumDAO.getAlbumsByUnitId(&quot;u2&quot;);</span>
+    }
+
+    public List&lt;Tblalbum&gt; getNctUAlbums() {
+<span class="fc" id="L162">        return albumDAO.getAlbumsByUnitId(&quot;u3&quot;);</span>
+    }
+
+    public List&lt;Tblalbum&gt; getWayVAlbums() {
+<span class="fc" id="L166">        return albumDAO.getAlbumsByUnitId(&quot;u4&quot;);</span>
+    } 
+    
+    public List&lt;Tblalbum&gt; getAlbums() {
+<span class="fc bfc" id="L170" title="All 2 branches covered.">        if (albums == null) {</span>
+<span class="fc" id="L171">            albums = albumDAO.getAllAlbums();</span>
+        }
+<span class="fc" id="L173">        return albums;</span>
+    }
+    
+
+    public void updateAlbum(Tblalbum album) {
+        try {
+<span class="fc" id="L179">            albumDAO.updateAlbum(album);</span>
+<span class="fc" id="L180">            FacesUtil.addSuccessMessage(&quot;Album berhasil diperbarui&quot;);</span>
+<span class="fc" id="L181">        } catch (Exception e) {</span>
+<span class="fc" id="L182">            FacesUtil.addErrorMessage(&quot;Gagal memperbarui album: &quot; + e.getMessage());</span>
+<span class="fc" id="L183">        }</span>
+<span class="fc" id="L184">    }</span>
+    
+    public void uploadAlbumImage(Tblalbum targetAlbum) {
+<span class="pc bpc" id="L187" title="1 of 2 branches missed.">        if (albumImageFile != null) {</span>
+<span class="pc" id="L188">            try (InputStream input = albumImageFile.getInputStream()) {</span>
+<span class="fc" id="L189">                byte[] fileContent = new byte[(int) albumImageFile.getSize()];</span>
+<span class="fc" id="L190">                input.read(fileContent);</span>
+<span class="fc" id="L191">                targetAlbum.setAlbumImg(fileContent);</span>
+<span class="pc bpc" id="L192" title="6 of 8 branches missed.">            } catch (IOException e) {</span>
+<span class="fc" id="L193">                FacesUtil.addErrorMessage(&quot;Gagal mengunggah gambar: &quot; + e.getMessage());</span>
+<span class="fc" id="L194">            }</span>
+        }
+<span class="fc" id="L196">    }</span>
+ 
+
+    public void handleFileUpload(Tblalbum album) {
+<span class="pc bpc" id="L200" title="1 of 2 branches missed.">        if (albumImageFile != null) {</span>
+<span class="pc" id="L201">            try (InputStream input = albumImageFile.getInputStream()) {</span>
+<span class="fc" id="L202">                byte[] fileContent = new byte[(int) albumImageFile.getSize()];</span>
+<span class="fc" id="L203">                input.read(fileContent);</span>
+<span class="fc" id="L204">                album.setAlbumImg(fileContent);</span>
+<span class="fc" id="L205">                albumDAO.updateAlbum(album);</span>
+<span class="fc" id="L206">                FacesUtil.addSuccessMessage(&quot;Gambar album berhasil diperbarui&quot;);</span>
+<span class="pc bpc" id="L207" title="6 of 8 branches missed.">            } catch (IOException e) {</span>
+<span class="fc" id="L208">                FacesUtil.addErrorMessage(&quot;Gagal mengunggah gambar: &quot; + e.getMessage());</span>
+<span class="fc" id="L209">            }</span>
+        }
+<span class="fc" id="L211">    }</span>
+
+    public void addNewAlbum() {
+        try {
+<span class="fc" id="L215">            System.out.println(&quot;Attempting to add new album&quot;);</span>
+<span class="fc" id="L216">            System.out.println(&quot;New Album: &quot; + newAlbum);</span>
+<span class="pc bpc" id="L217" title="1 of 2 branches missed.">            System.out.println(&quot;Unit: &quot; + (newAlbum.getTblunit() != null ? newAlbum.getTblunit().getUnitId() : &quot;null&quot;));</span>
+
+<span class="pc bpc" id="L219" title="2 of 4 branches missed.">            if (albumImageFile != null &amp;&amp; albumImageFile.getSize() &gt; 0) {</span>
+<span class="fc" id="L220">                uploadAlbumImage(newAlbum);</span>
+            }
+
+<span class="pc bpc" id="L223" title="1 of 2 branches missed.">            if (newAlbum.getTblunit() == null) {</span>
+<span class="nc" id="L224">                newAlbum.setTblunit(new Tblunit());</span>
+            }
+
+<span class="fc bfc" id="L227" title="All 2 branches covered.">            if (newAlbum.getTblunit().getUnitId() != null) {</span>
+<span class="fc" id="L228">                String unitIdString = newAlbum.getTblunit().getUnitId();</span>
+<span class="fc" id="L229">                Tblunit unit = new Tblunit();</span>
+<span class="fc" id="L230">                unit.setUnitId(unitIdString);</span>
+<span class="fc" id="L231">                newAlbum.setTblunit(unit);</span>
+<span class="fc" id="L232">            } else {</span>
+<span class="fc" id="L233">                FacesUtil.addErrorMessage(&quot;Unit ID tidak boleh kosong&quot;);</span>
+<span class="fc" id="L234">                return;</span>
+            }
+
+<span class="fc" id="L237">            albumDAO.addAlbum(newAlbum);</span>
+<span class="fc" id="L238">            FacesUtil.addSuccessMessage(&quot;Album baru berhasil ditambahkan&quot;);</span>
+<span class="fc" id="L239">            albums = null;</span>
+<span class="fc" id="L240">            newAlbum = new Tblalbum();</span>
+<span class="fc" id="L241">            newAlbum.setTblunit(new Tblunit());</span>
+<span class="nc" id="L242">        } catch (Exception e) {</span>
+<span class="nc" id="L243">            e.printStackTrace();</span>
+<span class="nc" id="L244">            FacesUtil.addErrorMessage(&quot;Gagal menambahkan album: &quot; + e.getMessage());</span>
+<span class="fc" id="L245">        }</span>
+<span class="fc" id="L246">    }</span>
+
+
+
+    public void deleteAlbum(Tblalbum album) {
+        try {
+<span class="fc" id="L252">            albumDAO.deleteAlbum(album);</span>
+<span class="fc" id="L253">            albums.remove(album);</span>
+<span class="fc" id="L254">            FacesUtil.addSuccessMessage(&quot;Album berhasil dihapus&quot;);</span>
+<span class="fc" id="L255">        } catch (Exception e) {</span>
+<span class="fc" id="L256">            FacesUtil.addErrorMessage(&quot;Gagal menghapus album: &quot; + e.getMessage());</span>
+<span class="fc" id="L257">        }</span>
+<span class="fc" id="L258">    }</span>
+
+    public Integer getSelectedAlbumId() {
+<span class="fc" id="L261">        return selectedAlbumId;</span>
+    }
+
+    public void setSelectedAlbumId(Integer selectedAlbumId) {
+<span class="fc" id="L265">        this.selectedAlbumId = selectedAlbumId;</span>
+<span class="fc" id="L266">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

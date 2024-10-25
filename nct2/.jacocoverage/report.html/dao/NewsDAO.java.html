@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>NewsDAO.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;nct2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">dao</a> &gt; <span class="el_source">NewsDAO.java</span></div><h1>NewsDAO.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dao;
+
+import model.Tblnews;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import util.HibernateUtil;
+import java.util.List;
+
+/**
+ *
+ * @author USER
+ */
+<span class="fc" id="L18">public class NewsDAO {</span>
+
+    private Session getSession() {
+<span class="fc" id="L21">        return HibernateUtil.getSessionFactory().openSession();</span>
+    }
+
+    public void addNews(Tblnews news) {
+<span class="fc" id="L25">        Session session = null;</span>
+<span class="fc" id="L26">        Transaction transaction = null;</span>
+        try {
+<span class="fc" id="L28">            session = getSession();</span>
+<span class="fc" id="L29">            transaction = session.beginTransaction();</span>
+<span class="fc" id="L30">            session.save(news);</span>
+<span class="fc" id="L31">            transaction.commit();</span>
+<span class="nc" id="L32">        } catch (Exception e) {</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">            if (transaction != null) {</span>
+<span class="nc" id="L34">                transaction.rollback();</span>
+            }
+<span class="nc" id="L36">            e.printStackTrace();</span>
+        } finally {
+<span class="pc bpc" id="L38" title="10 of 12 branches missed.">            if (session != null &amp;&amp; session.isOpen()) {</span>
+<span class="pc" id="L39">                session.close();</span>
+            }
+        }
+<span class="fc" id="L42">    }</span>
+
+    public void updateNews(Tblnews news) {
+<span class="fc" id="L45">        Session session = null;</span>
+<span class="fc" id="L46">        Transaction transaction = null;</span>
+        try {
+<span class="fc" id="L48">            session = getSession();</span>
+<span class="fc" id="L49">            transaction = session.beginTransaction();</span>
+<span class="fc" id="L50">            session.update(news);</span>
+<span class="fc" id="L51">            transaction.commit();</span>
+<span class="nc" id="L52">        } catch (Exception e) {</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">            if (transaction != null) {</span>
+<span class="nc" id="L54">                transaction.rollback();</span>
+            }
+<span class="nc" id="L56">            e.printStackTrace();</span>
+        } finally {
+<span class="pc bpc" id="L58" title="10 of 12 branches missed.">            if (session != null &amp;&amp; session.isOpen()) {</span>
+<span class="pc" id="L59">                session.close();</span>
+            }
+        }
+<span class="fc" id="L62">    }</span>
+
+    public void deleteNews(Tblnews news) {
+<span class="fc" id="L65">        Session session = null;</span>
+<span class="fc" id="L66">        Transaction transaction = null;</span>
+        try {
+<span class="fc" id="L68">            session = getSession();</span>
+<span class="fc" id="L69">            transaction = session.beginTransaction();</span>
+<span class="fc" id="L70">            session.delete(news);</span>
+<span class="fc" id="L71">            transaction.commit();</span>
+<span class="fc" id="L72">        } catch (Exception e) {</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">            if (transaction != null) {</span>
+<span class="fc" id="L74">                transaction.rollback();</span>
+            }
+<span class="fc" id="L76">            e.printStackTrace();</span>
+        } finally {
+<span class="pc bpc" id="L78" title="8 of 12 branches missed.">            if (session != null &amp;&amp; session.isOpen()) {</span>
+<span class="pc" id="L79">                session.close();</span>
+            }
+        }
+<span class="fc" id="L82">    }</span>
+
+    public Tblnews getNewsById(int id) {
+<span class="fc" id="L85">        Session session = null;</span>
+        try {
+<span class="fc" id="L87">            session = getSession();</span>
+<span class="fc" id="L88">            return (Tblnews) session.createQuery(&quot;FROM Tblnews WHERE newsId = :id&quot;)</span>
+<span class="fc" id="L89">                                    .setParameter(&quot;id&quot;, id)</span>
+<span class="fc" id="L90">                                    .uniqueResult();</span>
+<span class="nc" id="L91">        } catch (Exception e) {</span>
+<span class="nc" id="L92">            e.printStackTrace();</span>
+<span class="nc" id="L93">            return null;</span>
+        } finally {
+<span class="pc bpc" id="L95" title="10 of 12 branches missed.">            if (session != null &amp;&amp; session.isOpen()) {</span>
+<span class="pc" id="L96">                session.close();</span>
+            }
+        }
+    }
+
+    public List&lt;Tblnews&gt; getAllNews() {
+<span class="fc" id="L102">        Session session = null;</span>
+        try {
+<span class="fc" id="L104">            session = getSession();</span>
+<span class="fc" id="L105">            return session.createQuery(&quot;FROM Tblnews&quot;).list();</span>
+<span class="nc" id="L106">        } catch (Exception e) {</span>
+<span class="nc" id="L107">            e.printStackTrace();</span>
+<span class="nc" id="L108">            return null;</span>
+        } finally {
+<span class="pc bpc" id="L110" title="5 of 6 branches missed.">            if (session != null) {</span>
+<span class="pc" id="L111">                session.close();</span>
+            }
+        }
+    }
+
+    public List&lt;Tblnews&gt; getNewsByUnitId(String unitId) {
+<span class="fc" id="L117">        Session session = null;</span>
+        try {
+<span class="fc" id="L119">            session = getSession();</span>
+<span class="fc" id="L120">            return session.createQuery(&quot;FROM Tblnews WHERE tblunit.unitId = :unitId ORDER BY newsId&quot;)</span>
+<span class="fc" id="L121">                          .setParameter(&quot;unitId&quot;, unitId)</span>
+<span class="fc" id="L122">                          .list();</span>
+<span class="nc" id="L123">        } catch (Exception e) {</span>
+<span class="nc" id="L124">            e.printStackTrace();</span>
+<span class="nc" id="L125">            return null;</span>
+        } finally {
+<span class="pc bpc" id="L127" title="5 of 6 branches missed.">            if (session != null) {</span>
+<span class="pc" id="L128">                session.close();</span>
+            }
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

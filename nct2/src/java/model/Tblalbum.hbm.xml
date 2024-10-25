@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 30, 2024 2:35:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Tblalbum" table="tblalbum" catalog="nct1" optimistic-lock="version">
+        <id name="albumId" type="java.lang.Integer">
+            <column name="albumId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblunit" class="model.Tblunit" fetch="select">
+            <column name="unitId" length="10" />
+        </many-to-one>
+        <property name="albumImg" type="binary">
+            <column name="albumImg" />
+        </property>
+        <property name="albumName" type="string">
+            <column name="albumName" not-null="true" />
+        </property>
+        <property name="albumDescription" type="string">
+            <column name="albumDescription" length="65535" not-null="true" />
+        </property>
+        <property name="url" type="string">
+            <column name="url" not-null="true" />
+        </property>
+        <property name="url1" type="string">
+            <column name="url1" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 30, 2024 2:35:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Tblmember" table="tblmember" catalog="nct1" optimistic-lock="version">
+        <id name="memberId" type="string">
+            <column name="memberId" length="10" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tblunit" class="model.Tblunit" fetch="select">
+            <column name="unitId" length="10" />
+        </many-to-one>
+        <property name="memberImg" type="string">
+            <column name="memberImg" />
+        </property>
+        <property name="memberName" type="string">
+            <column name="memberName" length="50" not-null="true" />
+        </property>
+        <property name="role" type="string">
+            <column name="role" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Sign In - NCT Admin Fan Website</title>
+        <link rel="shortcut icon" href="img/logonct.png" type="image/x-icon"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                background-image: url('https://cdn.wallpapersafari.com/31/54/Fkwhuf.jpg');
+                background-size: cover; /* Cover the entire body */
+                background-position: center; /* Center the background image */
+                background-repeat: no-repeat; /* Prevent repeating the image */
+            }
+            .login-container {
+                max-width: 400px;
+                margin: auto;
+                padding: 20px;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                opacity: 0.9; /* Slight transparency for the container */
+            }
+            .content {
+                flex: 1 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            footer {
+                flex-shrink: 0;
+                background: #f1f1f1; /* Optional footer background */
+                padding: 10px 0;
+                text-align: center;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <ui:include src="header.xhtml"/>
+        <div class="content">
+            <div class="login-container">
+                <h:form>
+                    <h:messages globalOnly="true" styleClass="alert alert-warning"/>
+                    <div class="mb-3">
+                        <h:outputLabel for="username" value="Username:" class="form-label" />
+                        <h:inputText id="username" value="#{tbladmin.username}" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <h:outputLabel for="password" value="Password:" class="form-label" />
+                        <h:inputSecret id="password" value="#{tbladmin.password}" class="form-control" />
+                    </div>
+                    <div class="d-grid gap-2">
+                        <h:commandButton value="Sign In" action="#{tbladmin.validasiLogin}" 
+                                         styleClass="btn btn-primary" />
+                        <h:button value="Cancel" outcome="index" styleClass="btn btn-secondary" />
+                    </div>
+                </h:form>
+            </div>
+        </div>
+        <ui:include src="footer.xhtml" />
+    </h:body>
+</html>

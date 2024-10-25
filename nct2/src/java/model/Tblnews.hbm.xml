@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 30, 2024 2:35:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Tblnews" table="tblnews" catalog="nct1" optimistic-lock="version">
+        <id name="newsId" type="java.lang.Integer">
+            <column name="newsId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblunit" class="model.Tblunit" fetch="select">
+            <column name="unitId" length="10" />
+        </many-to-one>
+        <property name="news" type="string">
+            <column name="news" length="65535" />
+        </property>
+        <property name="image" type="binary">
+            <column name="image" />
+        </property>
+    </class>
+</hibernate-mapping>

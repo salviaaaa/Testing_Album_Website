@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 30, 2024 2:35:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Tblunit" table="tblunit" catalog="nct1" optimistic-lock="version">
+        <id name="unitId" type="string">
+            <column name="unitId" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="unitName" type="string">
+            <column name="unitName" not-null="true" />
+        </property>
+        <set name="tblalbums" table="tblalbum" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="unitId" length="10" />
+            </key>
+            <one-to-many class="model.Tblalbum" />
+        </set>
+        <set name="tblmembers" table="tblmember" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="unitId" length="10" />
+            </key>
+            <one-to-many class="model.Tblmember" />
+        </set>
+        <set name="tblnewses" table="tblnews" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="unitId" length="10" />
+            </key>
+            <one-to-many class="model.Tblnews" />
+        </set>
+    </class>
+</hibernate-mapping>

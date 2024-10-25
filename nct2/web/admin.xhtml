@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>Admin Page</title>
+    <link rel="shortcut icon" href="img/logonct.png" type="image/x-icon"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1 0 auto;
+        }
+        footer {
+            flex-shrink: 0;
+        }
+    </style>
+    <script type="text/javascript">
+        function showMessage(message, type) {
+            var messageContainer = document.getElementById('messageContainer');
+            var alertClass = type === 'error' ? 'alert-danger' : 'alert-success';
+            messageContainer.innerHTML = '<div class="alert ' + alertClass + ' alert-dismissible fade show" role="alert">' +
+                message +
+                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+            
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+        
+        function confirmAction(message) {
+            return confirm(message);
+        }
+        
+        function showMessages() {
+            var messages = document.getElementById('messages');
+            if (messages) {
+                var items = messages.getElementsByTagName('li');
+                for (var i = 0; i &lt; items.length; i++) {
+                    var message = items[i].innerHTML;
+                    var type = items[i].getAttribute('class').split(' ')[0];
+                    showMessage(message, type);
+                }
+            }
+        }
+        
+        // Call showMessages() when the page loads
+        window.onload = showMessages;
+    </script>
+</h:head>
+<h:body>
+    <ui:include src="header.xhtml"/>
+    <div class="content">
+        <h:panelGroup rendered="#{!tbladmin.loggedIn}">
+            <div class="container mt-5">
+                <div class="alert alert-warning">
+                    You need to log in as an admin to access this page. 
+                    <h:link outcome="signin" value="Click here to sign in" styleClass="alert-link"/>
+                </div>
+            </div>
+        </h:panelGroup>
+
+        <h:panelGroup rendered="#{tbladmin.loggedIn}">
+            <div class="container mt-4">
+                <!-- Tambahkan ini untuk menampilkan pesan -->
+                <div id="messageContainer"></div>
+                
+                <h:messages globalOnly="true" styleClass="alert alert-info" />
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3>Welcome, #{tbladmin.username}</h3>
+                    <h:form>
+                        <h:commandButton value="Log Out" action="#{tbladmin.logout}" 
+                                         onclick="return confirm('Are you sure you want to log out?');"
+                                         styleClass="btn btn-outline-danger" />
+                    </h:form>
+                </div>
+
+                <!-- Unit Table -->
+                <h2>Unit Table</h2>
+                <h:form id="unitForm">
+                    <h:dataTable value="#{unitBean.units}" var="unit" class="table table-striped">
+                        <h:column>
+                            <f:facet name="header">Unit ID</f:facet>
+                            <h:outputText value="#{unit.unitId}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Unit Name</f:facet>
+                            <h:outputText value="#{unit.unitName}" />
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+                <br></br>
+                
+                <!-- Album Table -->
+                <h2>Album Table</h2>
+                <h:form id="albumForm" enctype="multipart/form-data">
+                    <!-- Tambahkan ini untuk menampilkan pesan spesifik untuk form album -->
+                    <h:messages for="albumForm" styleClass="alert alert-info" />
+                    
+                    <h:dataTable value="#{albumBean.albums}" var="album" class="table table-striped">
+                        <h:column>
+                            <f:facet name="header">Album Image</f:facet>
+                            <h:graphicImage value="data:image/jpeg;base64,#{album.albumImgBase64}" alt="Album Image" style="max-width: 100px;"/>
+                            <h:inputFile value="#{albumBean.albumImageFile}">
+                                <f:ajax listener="#{albumBean.handleFileUpload(album)}" render="@form :messages" onevent="function(data) { if (data.status === 'success') { showMessages(); } }"/>
+                            </h:inputFile>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Album Name</f:facet>
+                            <h:inputText value="#{album.albumName}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Album Description</f:facet>
+                            <h:inputTextarea value="#{album.albumDescription}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">URL</f:facet>
+                            <h:inputText value="#{album.url}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">URL1</f:facet>
+                            <h:inputTextarea value="#{album.url1}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Unit ID</f:facet>
+                            <h:outputText value="#{album.tblunit.unitId}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Aksi</f:facet>
+                            <h:commandButton value="Save" action="#{albumBean.updateAlbum(album)}" class="btn btn-primary mr-2"
+                                             onclick="return confirmAction('Are you sure you want to save changes to this album?');">
+                                <f:ajax execute="@form" render="@form :messages" onevent="function(data) { if (data.status === 'success') { showMessages(); } }"/>
+                            </h:commandButton>
+                            <h:commandButton value="Delete" action="#{albumBean.deleteAlbum(album)}" class="btn btn-danger"
+                                             onclick="return confirmAction('Are you sure you want to delete this album?');">
+                                <f:ajax execute="@this" render="@form :messages" onevent="function(data) { if (data.status === 'success') { showMessages(); } }"/>
+                            </h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                    
+                    <!-- Baris baru untuk menambah album -->
+                    <h:panelGrid columns="7">
+                        <h:inputFile value="#{albumBean.albumImageFile}"/>
+                        <h:inputText value="#{albumBean.newAlbum.albumName}">
+                            <f:attribute name="placeholder" value="Nama Album"/>
+                        </h:inputText>
+                        <h:inputTextarea value="#{albumBean.newAlbum.albumDescription}">
+                            <f:attribute name="placeholder" value="Deskripsi Album"/>
+                        </h:inputTextarea>
+                        <h:inputText value="#{albumBean.newAlbum.url}">
+                            <f:attribute name="placeholder" value="URL Album"/>
+                        </h:inputText>
+                        <h:inputTextarea value="#{albumBean.newAlbum.url1}">
+                            <f:attribute name="placeholder" value="URL1 Album"/>
+                        </h:inputTextarea>
+                        <h:selectOneMenu value="#{albumBean.newAlbum.tblunit.unitId}">
+                            <f:selectItems value="#{unitBean.units}" var="unit"
+                                           itemValue="#{unit.unitId}" itemLabel="#{unit.unitName}"/>
+                        </h:selectOneMenu>
+                        <h:commandButton value="Add Album" action="#{albumBean.addNewAlbum}" class="btn btn-success"
+                                         onclick="return confirm('Are you sure you want to add this new album?');">
+                            <f:ajax execute="@form" render="@form :messages" onevent="function(data) { if (data.status === 'success') { showMessages(); } }"/>
+                        </h:commandButton>
+                    </h:panelGrid>
+                </h:form>
+                <br></br>
+
+                <!-- News Table -->
+                <h2>News Table</h2>
+                <h:form id="newsForm" enctype="multipart/form-data">
+                    <h:dataTable value="#{newsBean.newsList}" var="news" class="table table-striped">
+                        <h:column>
+                            <f:facet name="header">News Image</f:facet>
+                            <h:graphicImage value="data:image/jpeg;base64,#{news.newsImgBase64}" alt="News Image" style="max-width: 100px;"/>
+                            <h:inputFile value="#{newsBean.newsImageFile}">
+                                <f:ajax listener="#{newsBean.handleFileUpload(news)}" render="@form" onevent="function(data) { if (data.status === 'success') { showMessages(); } }"/>
+                            </h:inputFile>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">News Content</f:facet>
+                            <h:inputTextarea value="#{news.news}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Unit ID</f:facet>
+                            <h:outputText value="#{news.tblunit.unitId}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Aksi</f:facet>
+                            <h:commandButton value="Save" action="#{newsBean.updateNews(news)}" class="btn btn-primary mr-2"
+                                             onclick="return confirm('Are you sure you want to save changes to this news?');">
+                                <f:ajax execute="@form" render="@form :messages" onevent="function(data) { if (data.status === 'success') { showMessages(); } }"/>
+                            </h:commandButton>
+                            <h:commandButton value="Delete" action="#{newsBean.deleteNews(news)}" class="btn btn-danger"
+                                             onclick="return confirm('Are you sure you want to delete this news?');">
+                                <f:ajax execute="@this" render="@form :messages" onevent="function(data) { if (data.status === 'success') { showMessages(); } }"/>
+                            </h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                    
+                    <!-- Baris baru untuk menambah news -->
+                    <h:panelGrid columns="4">
+                        <h:inputFile value="#{newsBean.newsImageFile}"/>
+                        <h:inputTextarea value="#{newsBean.newNews.news}">
+                            <f:attribute name="placeholder" value="Konten Berita"/>
+                        </h:inputTextarea>
+                        <h:selectOneMenu value="#{newsBean.newNews.tblunit.unitId}">
+                            <f:selectItems value="#{unitBean.units}" var="unit"
+                                           itemValue="#{unit.unitId}" itemLabel="#{unit.unitName}"/>
+                        </h:selectOneMenu>
+                        <h:commandButton value="Add News" action="#{newsBean.addNewNews}" class="btn btn-success"
+                                         onclick="return confirm('Are you sure you want to add this new news?');">
+                            <f:ajax execute="@form" render="@form :messages" onevent="function(data) { if (data.status === 'success') { showMessages(); } }"/>
+                        </h:commandButton>
+                    </h:panelGrid>
+                </h:form>
+                <br></br>
+
+                <!-- Member Table -->
+                <h2>Member Table</h2>
+                <h:form id="memberForm">
+                    <h:dataTable value="#{memberBean.members}" var="member" class="table table-striped">
+                        <h:column>
+                            <f:facet name="header">Member ID</f:facet>
+                            <h:outputText value="#{member.memberId}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Member Name</f:facet>
+                            <h:inputText value="#{member.memberName}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Member Image</f:facet>
+                            <h:inputText value="#{member.memberImg}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Role</f:facet>
+                            <h:inputText value="#{member.role}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Unit ID</f:facet>
+                            <h:outputText value="#{member.tblunit.unitId}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Aksi</f:facet>
+                            <h:commandButton value="Save" action="#{memberBean.updateMember(member)}" class="btn btn-primary mr-2"
+                                             onclick="return confirm('Are you sure you want to save changes to this member?');">
+                                <f:ajax execute="@form" render="@form :messages" onevent="function(data) { if (data.status === 'success') { showMessages(); } }"/>
+                            </h:commandButton>
+                            <h:commandButton value="Delete" action="#{memberBean.deleteMember(member)}" class="btn btn-danger"
+                                             onclick="return confirm('Are you sure you want to delete this member?');">
+                                <f:ajax execute="@this" render="@form :messages" onevent="function(data) { if (data.status === 'success') { showMessages(); } }"/>
+                            </h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                    
+                    <!-- Baris baru untuk menambah member -->
+                    <h:panelGrid columns="6">
+                        <h:inputText value="#{memberBean.newMember.memberName}">
+                            <f:attribute name="placeholder" value="Nama Member"/>
+                        </h:inputText>
+                        <h:inputText value="#{memberBean.newMember.memberImg}">
+                            <f:attribute name="placeholder" value="URL Gambar Member"/>
+                        </h:inputText>
+                        <h:inputText value="#{memberBean.newMember.role}">
+                            <f:attribute name="placeholder" value="Role Member"/>
+                        </h:inputText>
+                        <h:selectOneMenu value="#{memberBean.newMember.tblunit.unitId}">
+                            <f:selectItems value="#{unitBean.units}" var="unit"
+                                           itemValue="#{unit.unitId}" itemLabel="#{unit.unitName}"/>
+                        </h:selectOneMenu>
+                        <h:commandButton value="Add Member" action="#{memberBean.addNewMember}" class="btn btn-success"
+                                         onclick="return confirm('Are you sure you want to add this new member?');">
+                            <f:ajax execute="@form" render="@form :messages" onevent="function(data) { if (data.status === 'success') { showMessages(); } }"/>
+                        </h:commandButton>
+                    </h:panelGrid>
+                </h:form>
+
+                <!-- Tambahkan ini di luar form untuk menampilkan pesan -->
+                <h:messages id="messages" globalOnly="true" styleClass="hidden"/>
+            </div>
+        </h:panelGroup>
+    </div>
+    <ui:include src="footer.xhtml" />
+</h:body>
+</html>
