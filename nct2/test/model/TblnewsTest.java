@@ -319,5 +319,5 @@ public class TblnewsTest {
         assertNull(tblnews.getUnitId());
     }
 
-
+  
 }

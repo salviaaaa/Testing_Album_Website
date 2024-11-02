@@ -336,4 +336,40 @@ public class TblmemberTest {
         assertNull(existingMember.getTblunit());
         assertNull(existingMember.memberDAO);
     }
+
+    // Negative test case: Menguji getMembers ketika DAO mengembalikan null
+    @Test
+    public void testGetMembersWhenDaoReturnsNull() {
+        when(memberDAO.getAllMembers()).thenReturn(null); // Simulasi DAO mengembalikan null
+        
+        List<Tblmember> actualMembers = member.getMembers();
+        
+        assertNull(actualMembers); // Pastikan hasilnya null
+        verify(memberDAO).getAllMembers(); // Verifikasi bahwa DAO dipanggil
+    }
+
+    // Negative test case: Menguji generateNextMemberId ketika tidak ada anggota
+    @Test
+    public void testGenerateNextMemberIdWhenNoMembers() {
+        when(memberDAO.getAllMembers()).thenReturn(new ArrayList<>()); // Simulasi tidak ada anggota
+        
+        String nextId = member.generateNextMemberId();
+        
+        assertEquals("M1", nextId); // Diharapkan ID pertama adalah M1
+        verify(memberDAO).getAllMembers(); // Verifikasi bahwa DAO dipanggil
+    }
+
+    // Negative test case: Menguji generateNextMemberId ketika ada anggota dengan ID tertinggi
+    @Test
+    public void testGenerateNextMemberIdWithHighestId() {
+        when(memberDAO.getAllMembers()).thenReturn(Arrays.asList(
+            new Tblmember("M5", "Member 5", "Role 5"),
+            new Tblmember("M6", "Member 6", "Role 6")
+        )); // Simulasi anggota dengan ID tertinggi M6
+        
+        String nextId = member.generateNextMemberId();
+        
+        assertEquals("M7", nextId); // Diharapkan ID berikutnya adalah M7
+        verify(memberDAO).getAllMembers(); // Verifikasi bahwa DAO dipanggil
+    }
 }

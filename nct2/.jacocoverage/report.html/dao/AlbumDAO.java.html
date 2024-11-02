@@ -21,13 +21,13 @@ import java.util.List;
 <span class="fc" id="L21">            album.setUnitId(album.getTblunit().getUnitId()); // Set unitId sebelum menyimpan</span>
 <span class="fc" id="L22">            session.save(album);</span>
 <span class="fc" id="L23">            transaction.commit();</span>
-<span class="nc" id="L24">        } catch (Exception e) {</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">            if (transaction != null) {</span>
-<span class="nc" id="L26">                transaction.rollback();</span>
+<span class="fc" id="L24">        } catch (Exception e) {</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">            if (transaction != null) {</span>
+<span class="fc" id="L26">                transaction.rollback();</span>
             }
-<span class="nc" id="L28">            e.printStackTrace();</span>
+<span class="fc" id="L28">            e.printStackTrace();</span>
         } finally {
-<span class="pc bpc" id="L30" title="10 of 12 branches missed.">            if (session != null &amp;&amp; session.isOpen()) {</span>
+<span class="pc bpc" id="L30" title="8 of 12 branches missed.">            if (session != null &amp;&amp; session.isOpen()) {</span>
 <span class="pc" id="L31">                session.close();</span>
             }
         }

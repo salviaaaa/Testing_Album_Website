@@ -75,4 +75,29 @@ public class UnitDAOTest {
         assertTrue(actualUnits.isEmpty());
         verify(unitDAO).getUnitsByUnitId("U5");
     }
+    //baru ditambahkan
+    // Negative test case: Mengambil unit dengan ID yang tidak valid
+    @Test
+    public void testGetUnitsByInvalidId() {
+        when(unitDAO.getUnitsByUnitId(null)).thenThrow(new IllegalArgumentException("Unit ID cannot be null"));
+
+        try {
+            unitDAO.getUnitsByUnitId(null);
+            fail("Expected an exception to be thrown due to null unit ID");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Unit ID cannot be null", e.getMessage()); // Pastikan exception yang tepat dilempar
+        }
+    }
+
+    // Negative test case: Mengambil semua unit ketika tidak ada unit yang tersedia
+    @Test
+    public void testGetAllUnitsWhenEmpty() {
+        when(unitDAO.getAllUnits()).thenReturn(Arrays.asList()); // Mengembalikan daftar kosong
+
+        List<Tblunit> actualUnits = unitDAO.getAllUnits();
+
+        assertNotNull(actualUnits); // Pastikan hasil tidak null
+        assertTrue(actualUnits.isEmpty()); // Pastikan daftar unit kosong
+        verify(unitDAO).getAllUnits(); // Verifikasi bahwa metode dipanggil
+    }
 }

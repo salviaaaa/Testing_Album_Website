@@ -43,6 +43,7 @@ public class TblunitTest {
         assertNotNull(units);
         assertFalse(units.isEmpty());
     }
+
     @Test
     public void testGetNct127Units() {
         List<Tblunit> units = tblunit.getNct127Units();
@@ -50,6 +51,7 @@ public class TblunitTest {
         assertEquals(1, units.size());
         assertEquals("NCT 127", units.get(0).getUnitName());
     }
+
     @Test
     public void testGetDreamUnits() {
         List<Tblunit> units = tblunit.getDreamUnits();
@@ -57,6 +59,7 @@ public class TblunitTest {
         assertEquals(1, units.size());
         assertEquals("NCT Dream", units.get(0).getUnitName());
     }
+
     @Test
     public void testGetNctUnits() {
         List<Tblunit> units = tblunit.getNctUnits();
@@ -64,6 +67,7 @@ public class TblunitTest {
         assertEquals(1, units.size());
         assertEquals("NCT U", units.get(0).getUnitName());
     }
+
     @Test
     public void testGetWayVUnits() {
         List<Tblunit> units = tblunit.getWayVUnits();
@@ -107,6 +111,5 @@ public class TblunitTest {
         assertNotNull(unit.getTblmembers());
         assertNotNull(unit.getTblnewses());
     }
-
 
 }

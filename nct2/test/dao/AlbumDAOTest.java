@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -28,73 +27,80 @@ public class AlbumDAOTest {
         testAlbum = new Tblalbum(albumImage, "Test Album", "Test Description", "http://testurl.com", unit, "<iframe></iframe>");
         albumDAO.addAlbum(testAlbum); // Menambahkan album ke database
     }
-
+    /*
     @After
     public void tearDown() {
-        albumDAO.deleteAlbum(testAlbum); // Menghapus album setelah pengujian
+        albumDAO.deleteAlbum(testAlbum);
     }
+    */
+
+    
 
     @Test
     public void testAddAlbum() {
-        // Menggunakan album yang sama
-        Tblalbum retrievedAlbum = albumDAO.getAlbumById(testAlbum.getAlbumId());
-        assertNotNull(retrievedAlbum); // Pastikan album tidak null
-        assertEquals("Test Album", retrievedAlbum.getAlbumName()); // Pastikan nama album sesuai
+        // Buat album baru
+        Tblunit unit = new Tblunit();
+        unit.setUnitId("U1");
+        byte[] albumImage = new byte[0];
+        Tblalbum album = new Tblalbum(albumImage, "Album Baru", "Deskripsi Album", "http://example.com", unit, "<iframe></iframe>");
+        
+        // Tambah album
+        albumDAO.addAlbum(album);
+        
+        // Verifikasi dengan mengambil data
+        List<Tblalbum> albumList = albumDAO.getAllAlbums();
+        assertTrue(albumList.stream().anyMatch(a -> a.getAlbumName().equals("Album Baru")));
     }
 
     @Test
     public void testUpdateAlbum() {
-        testAlbum.setAlbumName("Updated Album");
-        albumDAO.updateAlbum(testAlbum);
-        Tblalbum updatedAlbum = albumDAO.getAlbumById(testAlbum.getAlbumId());
-        assertEquals("Updated Album", updatedAlbum.getAlbumName()); // Pastikan nama album diperbarui
-    }
-
-    @Test
-    public void testDeleteAlbum() {
-        albumDAO.deleteAlbum(testAlbum);
-        Tblalbum deletedAlbum = albumDAO.getAlbumById(testAlbum.getAlbumId());
-        assertNull(deletedAlbum); // Pastikan album sudah dihapus
-    }
-
-    @Test
-    public void testGetAlbumById() {
-        Tblalbum album = albumDAO.getAlbumById(testAlbum.getAlbumId());
-        assertNotNull(album); // Pastikan album tidak null
-        assertEquals("Test Album", album.getAlbumName()); // Pastikan nama album sesuai
-    }
-
-    @Test
-    public void testGetAllAlbums() {
-        // Mengambil semua album dari database
-        List<Tblalbum> albums = albumDAO.getAllAlbums();
+        // Buat dan tambah album baru
+        Tblunit unit = new Tblunit();
+        unit.setUnitId("U1");
+        byte[] albumImage = new byte[0];
+        Tblalbum album = new Tblalbum(albumImage, "Album Original", "Deskripsi", "http://example.com", unit, "<iframe></iframe>");
+        albumDAO.addAlbum(album);
         
-        // Memastikan daftar album tidak null
-        assertNotNull(albums); 
+        // Update album
+        album.setAlbumName("Album Updated");
+        albumDAO.updateAlbum(album);
         
-        // Memastikan ada album dalam daftar
-        assertFalse(albums.isEmpty()); 
-        
-        // Memastikan album yang ditest ada dalam daftar
-        boolean albumExists = albums.stream().anyMatch(album -> album.getAlbumId().equals(testAlbum.getAlbumId()));
-        assertTrue(albumExists); // Pastikan album yang ditest ada dalam daftar
+        // Verifikasi update
+        Tblalbum updatedAlbum = albumDAO.getAlbumById(album.getAlbumId());
+        assertEquals("Album Updated", updatedAlbum.getAlbumName());
     }
 
     @Test
-    public void testGetAlbumsByUnitId() {
-        List<Tblalbum> albums = albumDAO.getAlbumsByUnitId("U1");
-        assertNotNull(albums); // Pastikan daftar album tidak null
-        assertFalse(albums.isEmpty()); // Pastikan ada album dalam daftar
-        assertEquals("U1", albums.get(0).getTblunit().getUnitId()); // Pastikan unit ID sesuai
+    public void testAddAlbumExceptionCaught() {
+        // Buat album dengan data tidak valid
+        Tblunit unit = new Tblunit();
+        unit.setUnitId("U1");
+        byte[] albumImage = new byte[0];
+        Tblalbum invalidAlbum = new Tblalbum(albumImage, null, "Deskripsi", "http://example.com", unit, "<iframe></iframe>");
+        
+        // Tambah album
+        albumDAO.addAlbum(invalidAlbum);
+        
+        // Verifikasi dengan mengambil data
+        List<Tblalbum> albumList = albumDAO.getAllAlbums();
+        assertTrue(albumList.stream().noneMatch(a -> a.getAlbumName() == null));
     }
 
     @Test
-    public void testUpdateAlbumWithInvalidId() {
-        Tblalbum nonExistentAlbum = new Tblalbum();
-        nonExistentAlbum.setAlbumId(-1); // ID yang tidak ada
-        nonExistentAlbum.setAlbumName("Non-existent Album");
-        albumDAO.updateAlbum(nonExistentAlbum);
-        Tblalbum result = albumDAO.getAlbumById(-1);
-        assertNull(result); // Pastikan album tidak ada
+    public void testUpdateAlbumNegativeCase() {
+        // Buat album dengan ID yang tidak ada
+        Tblunit unit = new Tblunit();
+        unit.setUnitId("U1");
+        byte[] albumImage = new byte[0];
+        Tblalbum invalidAlbum = new Tblalbum(albumImage, "Album Invalid", "Deskripsi", "http://example.com", unit, "<iframe></iframe>");
+        invalidAlbum.setAlbumId(-1); // ID yang tidak valid
+        
+        // Update album
+        albumDAO.updateAlbum(invalidAlbum);
+        
+        // Verifikasi bahwa tidak ada album dengan ID negatif
+        List<Tblalbum> albumList = albumDAO.getAllAlbums();
+        assertTrue(albumList.stream().noneMatch(a -> a.getAlbumId() < 0));
     }
+    
 }

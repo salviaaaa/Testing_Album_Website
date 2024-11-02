@@ -11,7 +11,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import java.lang.RuntimeException;
 
 /**
  *
@@ -43,14 +42,61 @@ public class AdminDAOTest {
         assertNotNull(result); // Memastikan hasil tidak null
         assertFalse(result.isEmpty()); // Memastikan hasil tidak kosong
         
+        //sebelumnya
         // Pengujian untuk login yang gagal
+        //List<Tbladmin> errorResult = instance.getBy("admin", "wrongpassword");
+        //assertNotNull(errorResult); // Memastikan hasil tidak null
+        //assertTrue(errorResult.isEmpty()); // Memastikan hasil kosong
+        
+        // Pengujian untuk username yang tidak ada
+        //List<Tbladmin> noUserResult = instance.getBy("non_existing_user", "any_password");
+        //assertNotNull(noUserResult); // Memastikan hasil tidak null
+        //assertTrue(noUserResult.isEmpty()); // Memastikan hasil kosong
+    }
+
+    @Test
+    public void testLoginWithWrongPassword() {
         List<Tbladmin> errorResult = instance.getBy("admin", "wrongpassword");
         assertNotNull(errorResult); // Memastikan hasil tidak null
         assertTrue(errorResult.isEmpty()); // Memastikan hasil kosong
-        
-        // Pengujian untuk username yang tidak ada
+    }
+
+    @Test
+    public void testLoginWithNonExistingUser() {
         List<Tbladmin> noUserResult = instance.getBy("non_existing_user", "any_password");
         assertNotNull(noUserResult); // Memastikan hasil tidak null
         assertTrue(noUserResult.isEmpty()); // Memastikan hasil kosong
+    }
+
+    // Negative test case: Menguji login dengan username dan password kosong
+    @Test
+    public void testLoginWithEmptyCredentials() {
+        List<Tbladmin> emptyResult = instance.getBy("", "");
+        assertNotNull(emptyResult); // Memastikan hasil tidak null
+        assertTrue(emptyResult.isEmpty()); // Memastikan hasil kosong
+    }
+
+    // Negative test case: Menguji login dengan username kosong dan password valid
+    @Test
+    public void testLoginWithEmptyUsername() {
+        List<Tbladmin> result = instance.getBy("", "123");
+        assertNotNull(result); // Memastikan hasil tidak null
+        assertTrue(result.isEmpty()); // Memastikan hasil kosong
+    }
+
+    // Negative test case: Menguji login dengan username valid dan password kosong
+    @Test
+    public void testLoginWithEmptyPassword() {
+        List<Tbladmin> result = instance.getBy("faza_and_via", "");
+        assertNotNull(result); // Memastikan hasil tidak null
+        assertTrue(result.isEmpty()); // Memastikan hasil kosong
+    }
+
+    // Negative test case: Menguji login dengan input yang tidak valid
+    @Test
+    public void testLoginWithSpecialCharacters() {
+        List<Tbladmin> result = instance.getBy("!@#$%^&*", "123456");
+        assertNotNull(result); // Memastikan hasil tidak null
+        assertTrue(result.isEmpty()); // Memastikan hasil kosong
     }
 }

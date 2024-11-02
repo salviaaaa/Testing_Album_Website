@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="DESKTOP-R3TLJ74" name="dao.AlbumDAOTest" skipped="0" tests="7" time="4.478" timestamp="2024-10-25T01:59:56">
+<testsuite errors="0" failures="2" hostname="DESKTOP-R3TLJ74" name="dao.AlbumDAOTest" skipped="0" tests="9" time="2.949" timestamp="2024-11-01T04:15:36">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
-    <property name="ant.file.nct2-impl" value="C:\Users\USER\Downloads\nct2\nbproject\build-impl.xml" />
+    <property name="ant.file.nct2-impl" value="C:\Users\USER\Downloads\PROJECT_2_GROUP 6_TESTING ALBUM ADMIN WEBSITE\nct2\nbproject\build-impl.xml" />
     <property name="file.reference.byte-buddy-agent-1.9.10.jar" value="C:\Users\USER\Downloads\byte-buddy-agent-1.9.10.jar" />
     <property name="javac.test.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\antlr-2.7.7.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\c3p0-0.9.2.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-c3p0-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\mchange-commons-java-0.2.3.4.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\dom4j-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\ehcache-core-2.4.3.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-ehcache-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-core-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-logging-3.1.3.GA.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-commons-annotations-4.0.4.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-entitymanager-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\javassist-3.18.1-GA.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\slf4j-simple-1.6.1.jar:C:\Program Files\NetBeans 8.2\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar:build/web/WEB-INF/classes:C:\Program Files\NetBeans 8.2\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.2\platform\modules\ext\hamcrest-core-1.3.jar:C:\Users\USER\Downloads\mockito-core-3.12.4.jar:C:\Users\USER\Downloads\byte-buddy-1.9.10.jar:C:\Users\USER\Downloads\byte-buddy-agent-1.9.10.jar:C:\Users\USER\Downloads\objenesis-2.6.jar" />
     <property name="libs.jsf20.maven-pom" value="" />
@@ -15,7 +15,7 @@
     <property name="ant.core.lib" value="C:\Program Files\NetBeans 8.2\extide\ant\lib\ant.jar" />
     <property name="javadoc.windowtitle" value="" />
     <property name="libs.jsp-compilation.javadoc" value="" />
-    <property name="user.dir" value="C:\Users\USER\Downloads\nct2" />
+    <property name="user.dir" value="C:\Users\USER\Downloads\PROJECT_2_GROUP 6_TESTING ALBUM ADMIN WEBSITE\nct2" />
     <property name="libs.javaee-api-7.0.src" value="" />
     <property name="java.vm.version" value="25.321-b25" />
     <property name="libs.DataBindingME.classpath" value="C:\Program Files\NetBeans 8.2\mobility\modules\ext\netbeans_databindingme.jar" />
@@ -57,7 +57,7 @@
     <property name="libs.spring-webmvc3.0.src" value="" />
     <property name="libs.restapi.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jaxrs-2.0\javax.ws.rs-api-2.0.jar" />
     <property name="libs.Mockito.javadoc" value="" />
-    <property name="runmain.jvmargs" value=" -javaagent:&quot;C:\Users\USER\AppData\Roaming\NetBeans\8.2\modules\ext\jacocoagent.jar&quot;=includes=dao.*:model.*:util.*,destfile=&quot;C:\Users\USER\Downloads\nct2\jacoco.exec-403016804892800&quot;" />
+    <property name="runmain.jvmargs" value=" -javaagent:&quot;C:\Users\USER\AppData\Roaming\NetBeans\8.2\modules\ext\jacocoagent.jar&quot;=includes=dao.*:model.*:util.*,destfile=&quot;C:\Users\USER\Downloads\PROJECT_2_GROUP 6_TESTING ALBUM ADMIN WEBSITE\nct2\jacoco.exec-427299755021600&quot;" />
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
     <property name="libs.jaxb.maven-pom" value="" />
     <property name="os.arch" value="amd64" />
@@ -69,7 +69,7 @@
     <property name="libs.j2me_common_ant.maven-pom" value="" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dao.AlbumDAOTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\USER\Downloads\nct2\build\test\results\TEST-dao.AlbumDAOTest.xml crashfile=C:\Users\USER\Downloads\nct2\build\junitvmwatcher4636376060023621054.properties propsfile=C:\Users\USER\Downloads\nct2\build\junit5984857645962925493.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dao.AlbumDAOTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\USER\Downloads\PROJECT_2_GROUP 6_TESTING ALBUM ADMIN WEBSITE\nct2\build\test\results\TEST-dao.AlbumDAOTest.xml crashfile=C:\Users\USER\Downloads\PROJECT_2_GROUP 6_TESTING ALBUM ADMIN WEBSITE\nct2\build\junitvmwatcher7246182218834399210.properties propsfile=C:\Users\USER\Downloads\PROJECT_2_GROUP 6_TESTING ALBUM ADMIN WEBSITE\nct2\build\junit468502620003707950.properties" />
     <property name="build.classes.dir" value="build/web/WEB-INF/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="ap.supported.internal" value="true" />
@@ -140,7 +140,7 @@
     <property name="libs.spring-framework400.src" value="" />
     <property name="libs.PostgreSQLDriver.src" value="" />
     <property name="sun.arch.data.model" value="64" />
-    <property name="basedir" value="C:\Users\USER\Downloads\nct2" />
+    <property name="basedir" value="C:\Users\USER\Downloads\PROJECT_2_GROUP 6_TESTING ALBUM ADMIN WEBSITE\nct2" />
     <property name="libs.jpa20-persistence.maven-pom" value="" />
     <property name="jar.compress" value="false" />
     <property name="libs.javaee-web-api-7.0.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee-web-api-7.0.jar" />
@@ -190,7 +190,7 @@
     <property name="libs.spring-framework300.src" value="" />
     <property name="auxiliary.org-netbeans-modules-projectapi.jsf_2e_language" value="Facelets" />
     <property name="libs.jstl.src" value="" />
-    <property name="empty.dir" value="C:\Users\USER\Downloads\nct2\build\empty" />
+    <property name="empty.dir" value="C:\Users\USER\Downloads\PROJECT_2_GROUP 6_TESTING ALBUM ADMIN WEBSITE\nct2\build\empty" />
     <property name="display.browser" value="true" />
     <property name="version-output" value="java version &quot;1.8" />
     <property name="test.binarytestincludes" value="" />
@@ -211,7 +211,7 @@
     <property name="libs.restlib.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\asm-all-repackaged-2.2.0-b21.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\cglib-2.2.0-b21.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\guava-14.0.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\hk2-api-2.2.0-b21.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\hk2-locator-2.2.0-b21.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\hk2-utils-2.2.0-b21.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\javax.annotation-api-1.2.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\javax.inject-2.2.0-b21.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\javax.servlet-api-3.0.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\jaxb-api-2.2.7.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\jersey-entity-filtering-2.5.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\jersey-media-moxy-2.5.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\org.osgi.core-4.2.0.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\osgi-resource-locator-1.0.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\persistence-api-1.0.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\validation-api-1.1.0.Final.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\jersey-client.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\jersey-common.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\jersey-container-servlet.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\jersey-container-servlet-core.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\jersey-server.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar" />
     <property name="libs.MySQLDriver.maven-pom" value="" />
     <property name="j2ee.platform.wsgen.classpath" value="C:/Program Files/glassfish-4.1.1/glassfish/modules/webservices-osgi.jar:C:/Program Files/glassfish-4.1.1/glassfish/modules/endorsed/webservices-api-osgi.jar:C:/Program Files/glassfish-4.1.1/glassfish/modules/jaxb-osgi.jar:C:/Program Files/glassfish-4.1.1/glassfish/modules/endorsed/jaxb-api.jar" />
-    <property name="ant.file.nct2" value="C:\Users\USER\Downloads\nct2\build.xml" />
+    <property name="ant.file.nct2" value="C:\Users\USER\Downloads\PROJECT_2_GROUP 6_TESTING ALBUM ADMIN WEBSITE\nct2\build.xml" />
     <property name="libs.hibernate4-persistence.javadoc" value="C:\Program Files\NetBeans 8.2\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
     <property name="http.nonProxyHosts" value="localhost|127.0.0.1|DESKTOP-R3TLJ74" />
     <property name="libs.junit_4.javadoc" value="C:\Program Files\NetBeans 8.2\platform\docs\junit-4.12-javadoc.jar" />
@@ -240,7 +240,7 @@
     <property name="javac.processorpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\antlr-2.7.7.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\c3p0-0.9.2.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-c3p0-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\mchange-commons-java-0.2.3.4.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\dom4j-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\ehcache-core-2.4.3.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-ehcache-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-core-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-logging-3.1.3.GA.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-commons-annotations-4.0.4.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-entitymanager-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\javassist-3.18.1-GA.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\slf4j-simple-1.6.1.jar:C:\Program Files\NetBeans 8.2\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar" />
     <property name="libs.hamcrest.maven-pom" value="" />
     <property name="javac.compilerargs" value="" />
-    <property name="ant.file" value="C:\Users\USER\Downloads\nct2\build.xml" />
+    <property name="ant.file" value="C:\Users\USER\Downloads\PROJECT_2_GROUP 6_TESTING ALBUM ADMIN WEBSITE\nct2\build.xml" />
     <property name="libs.beans-binding.maven-pom" value="" />
     <property name="libs.hibernate4-support.javadoc" value="C:\Program Files\NetBeans 8.2\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
     <property name="libs.jsf12.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-1_2\commons-beanutils.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-1_2\commons-collections.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-1_2\commons-digester.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-1_2\commons-logging.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-1_2\jsf-api.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-1_2\jsf-impl.jar" />
@@ -395,7 +395,7 @@
     <property name="libs.jpa2-persistence.javadoc" value="C:\Program Files\NetBeans 8.2\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
     <property name="libs.DataBindingME.javadoc" value="C:\Program Files\NetBeans 8.2\mobility\modules\docs\netbeans_databindingme-api.zip" />
     <property name="apple.laf.useScreenMenuBar" value="true" />
-    <property name="java.class.path" value="C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\antlr-2.7.7.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\c3p0-0.9.2.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-c3p0-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\mchange-commons-java-0.2.3.4.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\dom4j-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\ehcache-core-2.4.3.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-ehcache-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-core-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-logging-3.1.3.GA.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-commons-annotations-4.0.4.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-entitymanager-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\javassist-3.18.1-GA.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\slf4j-simple-1.6.1.jar;C:\Program Files\NetBeans 8.2\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar;C:\Users\USER\Downloads\nct2\build\web\WEB-INF\classes;C:\Program Files\NetBeans 8.2\platform\modules\ext\junit-4.12.jar;C:\Program Files\NetBeans 8.2\platform\modules\ext\hamcrest-core-1.3.jar;C:\Users\USER\Downloads\mockito-core-3.12.4.jar;C:\Users\USER\Downloads\byte-buddy-1.9.10.jar;C:\Users\USER\Downloads\byte-buddy-agent-1.9.10.jar;C:\Users\USER\Downloads\objenesis-2.6.jar;C:\Users\USER\Downloads\nct2\build\test\classes;C:\Program Files\glassfish-4.1.1\glassfish\modules\endorsed\javax.annotation-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\endorsed\jaxb-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\endorsed\webservices-api-osgi.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\bean-validator.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\cdi-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.batch-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.ejb-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.el.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.enterprise.concurrent-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.enterprise.concurrent.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.enterprise.deploy-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.faces.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.inject.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.interceptor-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.jms-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.json.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.mail.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.management.j2ee-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.persistence.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.resource-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.security.auth.message-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.security.jacc-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.servlet-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.servlet.jsp-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.servlet.jsp.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.servlet.jsp.jstl-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.servlet.jsp.jstl.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.transaction-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.websocket-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.ws.rs-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.xml.registry-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.xml.rpc-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\jaxb-osgi.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\webservices-osgi.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\weld-osgi-bundle.jar;C:\Program Files\glassfish-4.1.1\mq\lib\jaxm-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\lib\embedded\glassfish-embedded-static-shell.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant-junit.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant-junit4.jar;C:\Users\USER\AppData\Roaming\NetBeans\8.2\modules\ext\jacocoagent.jar" />
+    <property name="java.class.path" value="C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\antlr-2.7.7.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\c3p0-0.9.2.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-c3p0-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\mchange-commons-java-0.2.3.4.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\dom4j-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\ehcache-core-2.4.3.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-ehcache-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-core-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-logging-3.1.3.GA.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-commons-annotations-4.0.4.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-entitymanager-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\javassist-3.18.1-GA.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\slf4j-simple-1.6.1.jar;C:\Program Files\NetBeans 8.2\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar;C:\Users\USER\Downloads\PROJECT_2_GROUP 6_TESTING ALBUM ADMIN WEBSITE\nct2\build\web\WEB-INF\classes;C:\Program Files\NetBeans 8.2\platform\modules\ext\junit-4.12.jar;C:\Program Files\NetBeans 8.2\platform\modules\ext\hamcrest-core-1.3.jar;C:\Users\USER\Downloads\mockito-core-3.12.4.jar;C:\Users\USER\Downloads\byte-buddy-1.9.10.jar;C:\Users\USER\Downloads\byte-buddy-agent-1.9.10.jar;C:\Users\USER\Downloads\objenesis-2.6.jar;C:\Users\USER\Downloads\PROJECT_2_GROUP 6_TESTING ALBUM ADMIN WEBSITE\nct2\build\test\classes;C:\Program Files\glassfish-4.1.1\glassfish\modules\endorsed\javax.annotation-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\endorsed\jaxb-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\endorsed\webservices-api-osgi.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\bean-validator.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\cdi-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.batch-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.ejb-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.el.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.enterprise.concurrent-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.enterprise.concurrent.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.enterprise.deploy-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.faces.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.inject.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.interceptor-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.jms-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.json.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.mail.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.management.j2ee-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.persistence.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.resource-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.security.auth.message-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.security.jacc-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.servlet-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.servlet.jsp-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.servlet.jsp.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.servlet.jsp.jstl-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.servlet.jsp.jstl.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.transaction-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.websocket-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.ws.rs-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.xml.registry-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\javax.xml.rpc-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\jaxb-osgi.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\webservices-osgi.jar;C:\Program Files\glassfish-4.1.1\glassfish\modules\weld-osgi-bundle.jar;C:\Program Files\glassfish-4.1.1\mq\lib\jaxm-api.jar;C:\Program Files\glassfish-4.1.1\glassfish\lib\embedded\glassfish-embedded-static-shell.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant-junit.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant-junit4.jar;C:\Users\USER\AppData\Roaming\NetBeans\8.2\modules\ext\jacocoagent.jar" />
     <property name="file.reference.objenesis-2.6.jar" value="C:\Users\USER\Downloads\objenesis-2.6.jar" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar" />
@@ -448,57 +448,67 @@
     <property name="war.ear.name" value="nct2.war" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="dao.AlbumDAOTest" name="testDeleteAlbum" time="3.947" />
-  <testcase classname="dao.AlbumDAOTest" name="testGetAlbumsByUnitId" time="0.031" />
-  <testcase classname="dao.AlbumDAOTest" name="testUpdateAlbum" time="0.034" />
-  <testcase classname="dao.AlbumDAOTest" name="testAddAlbum" time="0.028" />
-  <testcase classname="dao.AlbumDAOTest" name="testGetAllAlbums" time="0.089" />
-  <testcase classname="dao.AlbumDAOTest" name="testGetAlbumById" time="0.015" />
-  <testcase classname="dao.AlbumDAOTest" name="testUpdateAlbumWithInvalidId" time="0.205" />
+  <testcase classname="dao.AlbumDAOTest" name="testDeleteAlbum" time="2.421" />
+  <testcase classname="dao.AlbumDAOTest" name="testGetAlbumsByUnitId" time="0.026" />
+  <testcase classname="dao.AlbumDAOTest" name="testUpdateAlbum" time="0.018" />
+  <testcase classname="dao.AlbumDAOTest" name="testAddAlbumWithInvalidData" time="0.023">
+    <failure message="Expected an exception to be thrown due to invalid album data" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Expected an exception to be thrown due to invalid album data
+	at dao.AlbumDAOTest.testAddAlbumWithInvalidData(AlbumDAOTest.java:106)
+</failure>
+  </testcase>
+  <testcase classname="dao.AlbumDAOTest" name="testAddAlbum" time="0.013" />
+  <testcase classname="dao.AlbumDAOTest" name="testGetAllAlbums" time="0.057" />
+  <testcase classname="dao.AlbumDAOTest" name="testGetAlbumById" time="0.01" />
+  <testcase classname="dao.AlbumDAOTest" name="testDeleteNonExistentAlbum" time="0.012">
+    <failure message="Expected an exception to be thrown when trying to delete a non-existent album" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Expected an exception to be thrown when trying to delete a non-existent album
+	at dao.AlbumDAOTest.testDeleteNonExistentAlbum(AlbumDAOTest.java:119)
+</failure>
+  </testcase>
+  <testcase classname="dao.AlbumDAOTest" name="testUpdateAlbumWithInvalidId" time="0.297" />
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Oct 25, 2024 8:59:57 AM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+  <system-err><![CDATA[Nov 01, 2024 11:15:36 AM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
 INFO: HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
-Oct 25, 2024 8:59:57 AM org.hibernate.Version logVersion
+Nov 01, 2024 11:15:36 AM org.hibernate.Version logVersion
 INFO: HHH000412: Hibernate Core {4.3.1.Final}
-Oct 25, 2024 8:59:57 AM org.hibernate.cfg.Environment <clinit>
+Nov 01, 2024 11:15:36 AM org.hibernate.cfg.Environment <clinit>
 INFO: HHH000206: hibernate.properties not found
-Oct 25, 2024 8:59:57 AM org.hibernate.cfg.Environment buildBytecodeProvider
+Nov 01, 2024 11:15:36 AM org.hibernate.cfg.Environment buildBytecodeProvider
 INFO: HHH000021: Bytecode provider name : javassist
-Oct 25, 2024 8:59:57 AM org.hibernate.cfg.Configuration configure
+Nov 01, 2024 11:15:36 AM org.hibernate.cfg.Configuration configure
 INFO: HHH000043: Configuring from resource: /hibernate.cfg.xml
-Oct 25, 2024 8:59:57 AM org.hibernate.cfg.Configuration getConfigurationInputStream
+Nov 01, 2024 11:15:36 AM org.hibernate.cfg.Configuration getConfigurationInputStream
 INFO: HHH000040: Configuration resource: /hibernate.cfg.xml
-Oct 25, 2024 8:59:57 AM org.hibernate.internal.util.xml.DTDEntityResolver resolveEntity
+Nov 01, 2024 11:15:36 AM org.hibernate.internal.util.xml.DTDEntityResolver resolveEntity
 WARN: HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
-Oct 25, 2024 8:59:57 AM org.hibernate.cfg.Configuration addResource
+Nov 01, 2024 11:15:36 AM org.hibernate.cfg.Configuration addResource
 INFO: HHH000221: Reading mappings from resource: model/Tblalbum.hbm.xml
-Oct 25, 2024 8:59:57 AM org.hibernate.cfg.Configuration addResource
+Nov 01, 2024 11:15:36 AM org.hibernate.cfg.Configuration addResource
 INFO: HHH000221: Reading mappings from resource: model/Tblmember.hbm.xml
-Oct 25, 2024 8:59:57 AM org.hibernate.cfg.Configuration addResource
+Nov 01, 2024 11:15:36 AM org.hibernate.cfg.Configuration addResource
 INFO: HHH000221: Reading mappings from resource: model/Tbladmin.hbm.xml
-Oct 25, 2024 8:59:57 AM org.hibernate.cfg.Configuration addResource
+Nov 01, 2024 11:15:36 AM org.hibernate.cfg.Configuration addResource
 INFO: HHH000221: Reading mappings from resource: model/Tblnews.hbm.xml
-Oct 25, 2024 8:59:57 AM org.hibernate.cfg.Configuration addResource
+Nov 01, 2024 11:15:36 AM org.hibernate.cfg.Configuration addResource
 INFO: HHH000221: Reading mappings from resource: model/Tblunit.hbm.xml
-Oct 25, 2024 8:59:57 AM org.hibernate.cfg.Configuration doConfigure
+Nov 01, 2024 11:15:37 AM org.hibernate.cfg.Configuration doConfigure
 INFO: HHH000041: Configured SessionFactory: null
-Oct 25, 2024 8:59:57 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+Nov 01, 2024 11:15:37 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
 WARN: HHH000402: Using Hibernate built-in connection pool (not for production use!)
-Oct 25, 2024 8:59:57 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+Nov 01, 2024 11:15:37 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
 INFO: HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/nct1?zeroDateTimeBehavior=convertToNull]
-Oct 25, 2024 8:59:57 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+Nov 01, 2024 11:15:37 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
 INFO: HHH000046: Connection properties: {user=root}
-Oct 25, 2024 8:59:57 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+Nov 01, 2024 11:15:37 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
 INFO: HHH000006: Autocommit mode: false
-Oct 25, 2024 8:59:57 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+Nov 01, 2024 11:15:37 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
 INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
-Oct 25, 2024 8:59:58 AM org.hibernate.dialect.Dialect <init>
+Nov 01, 2024 11:15:37 AM org.hibernate.dialect.Dialect <init>
 INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-Oct 25, 2024 8:59:58 AM org.hibernate.engine.transaction.internal.TransactionFactoryInitiator initiateService
+Nov 01, 2024 11:15:37 AM org.hibernate.engine.transaction.internal.TransactionFactoryInitiator initiateService
 INFO: HHH000399: Using default transaction strategy (direct JDBC transactions)
-Oct 25, 2024 8:59:58 AM org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory <init>
+Nov 01, 2024 11:15:37 AM org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory <init>
 INFO: HHH000397: Using ASTQueryTranslatorFactory
-Oct 25, 2024 8:59:58 AM org.hibernate.validator.internal.util.Version <clinit>
+Nov 01, 2024 11:15:37 AM org.hibernate.validator.internal.util.Version <clinit>
 INFO: HV000001: Hibernate Validator 5.1.2.Final
 org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
 	at org.hibernate.jdbc.Expectations$BasicExpectation.checkBatched(Expectations.java:81)
@@ -516,7 +526,7 @@ org.hibernate.StaleStateException: Batch update returned unexpected row count fr
 	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.beforeTransactionCommit(JdbcTransaction.java:101)
 	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.commit(AbstractTransactionImpl.java:177)
 	at dao.AlbumDAO.deleteAlbum(AlbumDAO.java:64)
-	at dao.AlbumDAOTest.tearDown(AlbumDAOTest.java:34)
+	at dao.AlbumDAOTest.tearDown(AlbumDAOTest.java:33)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -538,27 +548,11 @@ org.hibernate.StaleStateException: Batch update returned unexpected row count fr
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:535)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1182)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1033)
-Oct 25, 2024 9:00:00 AM org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl release
+Nov 01, 2024 11:15:39 AM org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl release
 INFO: HHH000010: On release of batch it still contained JDBC statements
-org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: model.Tblunit
-	at org.hibernate.engine.internal.ForeignKeys.getEntityIdentifierIfNotUnsaved(ForeignKeys.java:294)
-	at org.hibernate.type.EntityType.getIdentifier(EntityType.java:510)
-	at org.hibernate.type.ManyToOneType.nullSafeSet(ManyToOneType.java:165)
-	at org.hibernate.persister.entity.AbstractEntityPersister.dehydrate(AbstractEntityPersister.java:2843)
-	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3248)
-	at org.hibernate.persister.entity.AbstractEntityPersister.updateOrInsert(AbstractEntityPersister.java:3183)
-	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3525)
-	at org.hibernate.action.internal.EntityUpdateAction.execute(EntityUpdateAction.java:158)
-	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:453)
-	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:345)
-	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:350)
-	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:56)
-	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1218)
-	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:421)
-	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.beforeTransactionCommit(JdbcTransaction.java:101)
-	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.commit(AbstractTransactionImpl.java:177)
-	at dao.AlbumDAO.updateAlbum(AlbumDAO.java:44)
-	at dao.AlbumDAOTest.testUpdateAlbumWithInvalidId(AlbumDAOTest.java:96)
+java.lang.NullPointerException
+	at dao.AlbumDAO.addAlbum(AlbumDAO.java:21)
+	at dao.AlbumDAOTest.testAddAlbumWithInvalidData(AlbumDAOTest.java:105)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -582,7 +576,91 @@ org.hibernate.TransientObjectException: object references an unsaved transient i
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:535)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1182)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1033)
-Oct 25, 2024 9:00:00 AM org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl release
+org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: model.Tblunit
+	at org.hibernate.engine.internal.ForeignKeys.getEntityIdentifierIfNotUnsaved(ForeignKeys.java:294)
+	at org.hibernate.type.EntityType.getIdentifier(EntityType.java:510)
+	at org.hibernate.type.ManyToOneType.isDirty(ManyToOneType.java:310)
+	at org.hibernate.type.ManyToOneType.isDirty(ManyToOneType.java:321)
+	at org.hibernate.type.TypeHelper.findDirty(TypeHelper.java:294)
+	at org.hibernate.persister.entity.AbstractEntityPersister.findDirty(AbstractEntityPersister.java:4237)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.dirtyCheck(DefaultFlushEntityEventListener.java:546)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.isUpdateNecessary(DefaultFlushEntityEventListener.java:232)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.onFlushEntity(DefaultFlushEntityEventListener.java:159)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEntities(AbstractFlushingEventListener.java:231)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEverythingToExecutions(AbstractFlushingEventListener.java:102)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:55)
+	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1218)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:421)
+	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.beforeTransactionCommit(JdbcTransaction.java:101)
+	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.commit(AbstractTransactionImpl.java:177)
+	at dao.AlbumDAO.deleteAlbum(AlbumDAO.java:64)
+	at dao.AlbumDAOTest.testDeleteNonExistentAlbum(AlbumDAOTest.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:535)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1182)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1033)
+org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: model.Tblunit
+	at org.hibernate.engine.internal.ForeignKeys.getEntityIdentifierIfNotUnsaved(ForeignKeys.java:294)
+	at org.hibernate.type.EntityType.getIdentifier(EntityType.java:510)
+	at org.hibernate.type.ManyToOneType.nullSafeSet(ManyToOneType.java:165)
+	at org.hibernate.persister.entity.AbstractEntityPersister.dehydrate(AbstractEntityPersister.java:2843)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3248)
+	at org.hibernate.persister.entity.AbstractEntityPersister.updateOrInsert(AbstractEntityPersister.java:3183)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3525)
+	at org.hibernate.action.internal.EntityUpdateAction.execute(EntityUpdateAction.java:158)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:453)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:345)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:350)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:56)
+	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1218)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:421)
+	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.beforeTransactionCommit(JdbcTransaction.java:101)
+	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.commit(AbstractTransactionImpl.java:177)
+	at dao.AlbumDAO.updateAlbum(AlbumDAO.java:44)
+	at dao.AlbumDAOTest.testUpdateAlbumWithInvalidId(AlbumDAOTest.java:95)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:535)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1182)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1033)
+Nov 01, 2024 11:15:39 AM org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl release
 INFO: HHH000010: On release of batch it still contained JDBC statements
 ]]></system-err>
 </testsuite>

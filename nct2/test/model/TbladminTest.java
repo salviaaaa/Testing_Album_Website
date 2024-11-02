@@ -48,6 +48,7 @@ public class TbladminTest {
     @Test
     public void testGetUsername() {
         String expResult = "faza_and_via";
+        instance.setUsername(expResult);
         String result = instance.getUsername();
         assertEquals(expResult, result);
     }
@@ -58,6 +59,7 @@ public class TbladminTest {
     @Test
     public void testGetEmail() {
         String expResult = "fv@nctadmin.com";
+        instance.setEmail(expResult);
         String result = instance.getEmail();
         assertEquals(expResult, result);
     }
@@ -68,6 +70,7 @@ public class TbladminTest {
     @Test
     public void testGetPassword() {
         String expResult = "123";
+        instance.setPassword(expResult);
         String result = instance.getPassword();
         assertEquals(expResult, result);
     }
@@ -78,15 +81,15 @@ public class TbladminTest {
     @Test
     public void testGetRole() {
         String expResult = "admin";
+        instance.setRole(expResult);
         String result = instance.getRole();
         assertEquals(expResult, result);
+        
     }
 
     /**
      * Test of validasiLogin method for successful login, of class Tbladmin.
      */
-    
-    
     @Test
     public void testValidasiLogin() {
         System.out.println("validasiLogin");
@@ -96,15 +99,44 @@ public class TbladminTest {
         String expResult = "admin?faces-redirect=true";
         String result = instance.validasiLogin();
         assertEquals(expResult, result);
-
-       
     }
     
+    // Negative test case: Menguji login dengan username dan password kosong
+    @Test
+    public void testValidasiLoginWithEmptyCredentials() {
+        instance.setUsername("");
+        instance.setPassword("");
+        String expResult = "signin.xhtml?faces-redirect=true"; // Diharapkan kembali ke halaman login
+        String result = instance.validasiLogin();
+        assertEquals(expResult, result);
+    }
+
+    // Negative test case: Menguji login dengan username kosong dan password valid
+    @Test
+    public void testValidasiLoginWithEmptyUsername() {
+        instance.setUsername("");
+        instance.setPassword("123");
+        String expResult = "signin.xhtml?faces-redirect=true"; // Diharapkan kembali ke halaman login
+        String result = instance.validasiLogin();
+        assertEquals(expResult, result);
+    }
+
+    // Negative test case: Menguji login dengan username valid dan password kosong
+    @Test
+    public void testValidasiLoginWithEmptyPassword() {
+        instance.setUsername("faza_and_via");
+        instance.setPassword("");
+        String expResult = "signin.xhtml?faces-redirect=true"; // Diharapkan kembali ke halaman login
+        String result = instance.validasiLogin();
+        assertEquals(expResult, result);
+    }
+
+    // Negative test case: Menguji login dengan username dan password yang tidak valid
     @Test
     public void testValidasiLoginWithInvalidCredentials() {
         instance.setUsername("invalid_user");
         instance.setPassword("wrong_password");
-        String expResult = "signin.xhtml?faces-redirect=true";
+        String expResult = "signin.xhtml?faces-redirect=true"; // Diharapkan kembali ke halaman login
         String result = instance.validasiLogin();
         assertEquals(expResult, result);
     }
@@ -167,7 +199,4 @@ public class TbladminTest {
         PhaseId result = instance.getPhaseId();
         assertEquals(expResult, result);
     }
-
-    
-
 }

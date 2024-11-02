@@ -116,7 +116,7 @@ public class Tblalbum implements Serializable {
 <span class="fc" id="L116">    }</span>
 
     public String getAlbumImgBase64() {
-<span class="pc bpc" id="L119" title="1 of 2 branches missed.">        return albumImg != null ? Base64.getEncoder().encodeToString(albumImg) : null;</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">        return albumImg != null ? Base64.getEncoder().encodeToString(albumImg) : null;</span>
     }
 
     // Logika dari AlbumBean
@@ -184,7 +184,7 @@ public class Tblalbum implements Serializable {
 <span class="fc" id="L184">    }</span>
     
     public void uploadAlbumImage(Tblalbum targetAlbum) {
-<span class="pc bpc" id="L187" title="1 of 2 branches missed.">        if (albumImageFile != null) {</span>
+<span class="fc bfc" id="L187" title="All 2 branches covered.">        if (albumImageFile != null) {</span>
 <span class="pc" id="L188">            try (InputStream input = albumImageFile.getInputStream()) {</span>
 <span class="fc" id="L189">                byte[] fileContent = new byte[(int) albumImageFile.getSize()];</span>
 <span class="fc" id="L190">                input.read(fileContent);</span>
@@ -197,7 +197,7 @@ public class Tblalbum implements Serializable {
  
 
     public void handleFileUpload(Tblalbum album) {
-<span class="pc bpc" id="L200" title="1 of 2 branches missed.">        if (albumImageFile != null) {</span>
+<span class="fc bfc" id="L200" title="All 2 branches covered.">        if (albumImageFile != null) {</span>
 <span class="pc" id="L201">            try (InputStream input = albumImageFile.getInputStream()) {</span>
 <span class="fc" id="L202">                byte[] fileContent = new byte[(int) albumImageFile.getSize()];</span>
 <span class="fc" id="L203">                input.read(fileContent);</span>
@@ -214,14 +214,14 @@ public class Tblalbum implements Serializable {
         try {
 <span class="fc" id="L215">            System.out.println(&quot;Attempting to add new album&quot;);</span>
 <span class="fc" id="L216">            System.out.println(&quot;New Album: &quot; + newAlbum);</span>
-<span class="pc bpc" id="L217" title="1 of 2 branches missed.">            System.out.println(&quot;Unit: &quot; + (newAlbum.getTblunit() != null ? newAlbum.getTblunit().getUnitId() : &quot;null&quot;));</span>
+<span class="fc bfc" id="L217" title="All 2 branches covered.">            System.out.println(&quot;Unit: &quot; + (newAlbum.getTblunit() != null ? newAlbum.getTblunit().getUnitId() : &quot;null&quot;));</span>
 
-<span class="pc bpc" id="L219" title="2 of 4 branches missed.">            if (albumImageFile != null &amp;&amp; albumImageFile.getSize() &gt; 0) {</span>
+<span class="pc bpc" id="L219" title="1 of 4 branches missed.">            if (albumImageFile != null &amp;&amp; albumImageFile.getSize() &gt; 0) {</span>
 <span class="fc" id="L220">                uploadAlbumImage(newAlbum);</span>
             }
 
-<span class="pc bpc" id="L223" title="1 of 2 branches missed.">            if (newAlbum.getTblunit() == null) {</span>
-<span class="nc" id="L224">                newAlbum.setTblunit(new Tblunit());</span>
+<span class="fc bfc" id="L223" title="All 2 branches covered.">            if (newAlbum.getTblunit() == null) {</span>
+<span class="fc" id="L224">                newAlbum.setTblunit(new Tblunit());</span>
             }
 
 <span class="fc bfc" id="L227" title="All 2 branches covered.">            if (newAlbum.getTblunit().getUnitId() != null) {</span>

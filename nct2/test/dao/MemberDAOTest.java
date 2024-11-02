@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -100,4 +100,13 @@ public class MemberDAOTest {
         assertFalse(members.isEmpty());
         assertEquals("U1", members.get(0).getTblunit().getUnitId());
     }
+
+    // Negative test case: Mengambil anggota dengan ID yang tidak valid
+    @Test
+    public void testGetMemberByInvalidId() {
+        Tblmember member = memberDAO.getMemberById("M999"); // ID yang tidak ada
+        assertNull(member); // Pastikan hasilnya null
+    }
+    
+    
 }

@@ -109,7 +109,7 @@ public class Tblnews  implements java.io.Serializable {
 <span class="fc" id="L109">    }</span>
 
     public void uploadNewsImage() {
-<span class="pc bpc" id="L112" title="1 of 2 branches missed.">        if (newsImageFile != null) {</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">        if (newsImageFile != null) {</span>
 <span class="pc" id="L113">            try (InputStream input = newsImageFile.getInputStream()) {</span>
 <span class="fc" id="L114">                byte[] fileContent = new byte[(int) newsImageFile.getSize()];</span>
 <span class="fc" id="L115">                input.read(fileContent);</span>
@@ -122,8 +122,8 @@ public class Tblnews  implements java.io.Serializable {
 
     public void addNewNews() {
         try {
-<span class="pc bpc" id="L125" title="1 of 2 branches missed.">            if (newNews.getTblunit() == null) {</span>
-<span class="nc" id="L126">                newNews.setTblunit(new Tblunit());</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">            if (newNews.getTblunit() == null) {</span>
+<span class="fc" id="L126">                newNews.setTblunit(new Tblunit());</span>
             }
             
 <span class="pc bpc" id="L129" title="1 of 4 branches missed.">            if (newNews.getTblunit().getUnitId() == null || newNews.getTblunit().getUnitId().isEmpty()) {</span>
